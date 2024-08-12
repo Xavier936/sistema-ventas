@@ -2,7 +2,24 @@
 include('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
-include('../app/controllers/usuarios/listado_usuarios.php'); 
+include('../app/controllers/usuarios/listado_usuarios.php');
+
+if(isset($_SESSION['mensaje'])){
+  $respuesta = $_SESSION['mensaje'];
+
+?>
+<script>
+  Swal.fire({
+          icon: "success",
+          title: '<?php echo $respuesta; ?>',
+          showConfirmButton: false,
+          timer: 2500
+        });
+</script>
+<?php
+  unset($_SESSION['mensaje']);
+}
+
 ?>
 <!-- Content Header (Page header) -->
 <div class="content-wrapper">
@@ -37,10 +54,12 @@ include('../app/controllers/usuarios/listado_usuarios.php');
                     <th>Email</th>
                   </tr>
                   <tbody>
-                    <?php  foreach($data_user as $userdata){
+                    <?php
+                    $contador = 0;  
+                    foreach($data_user as $userdata){
                       echo "hola a todos";?>
                       <tr>
-                        <td><?php  echo $userdata['id_usuario']?></td>
+                        <td><?php  echo $contador = $contador +1 ;?></td>
                         <td><?php  echo $userdata['nombres']?></td>
                         <td><?php  echo $userdata['email']?></td>
                       </tr>

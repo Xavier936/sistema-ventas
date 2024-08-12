@@ -1,7 +1,23 @@
 <?php
-include('../app/config.php');
+include_once('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
+
+if(isset($_SESSION['mensaje'])){
+  $respuesta = $_SESSION['mensaje'];
+
+?>
+<script>
+  Swal.fire({
+          icon: "error",
+          title: '<?php echo $respuesta; ?>',
+          showConfirmButton: false,
+          timer: 2500
+        });
+</script>
+<?php
+  unset($_SESSION['mensaje']);
+}
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -53,7 +69,7 @@ include('../layout/parte1.php');
 
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary"> Guardar</button>
-                      <a href="" class="btn btn-danger">Cancelar</a>
+                      <a href="index.php" class="btn btn-danger">Cancelar</a>
                     </div>
                   </form>
                 </div>
