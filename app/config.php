@@ -21,4 +21,20 @@ $URL = "http://localhost/sistema-ventas";
 date_default_timezone_set("America/Guayaquil");
 $fechaHora = date('Y-m-d H:i:s');
 
+if(isset($_SESSION['mensaje'])){
+    $respuesta = $_SESSION['mensaje'];
+  
+  ?>
+  <script>
+    Swal.fire({
+            icon: "error",
+            title: '<?php echo $respuesta; ?>',
+            showConfirmButton: false,
+            timer: 2500
+          });
+  </script>
+  <?php
+    unset($_SESSION['mensaje']);
+  }
+
 ?>

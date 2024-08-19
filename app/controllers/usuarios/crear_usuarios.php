@@ -20,14 +20,16 @@ if ($password_user == $pass_repeat) {
     $sql_create->bindParam(':nombres', $nombres);
     $sql_create->bindParam(':email', $email);
     $sql_create->bindParam(':password_user', $password_user);
-      $sql_create->bindParam(':fechaHora', $fechaHora);
+    $sql_create->bindParam(':fechaHora', $fechaHora);
     $sql_create->execute();
     session_start();
     $_SESSION['mensaje'] = 'Usuario grabado con exito';
+    $_SESSION['icono'] = 'success';
     header('Location: '.$URL.'/usuarios');
 }else{
     session_start();
     $_SESSION['mensaje'] = 'Error las contraseñas no son iguales';
+    $_SESSION['icono'] = 'error';
     header('Location: '.$URL.'/usuarios/create.php');
 }
 

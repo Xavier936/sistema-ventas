@@ -4,23 +4,9 @@ include('../layout/sesion.php');
 include('../layout/parte1.php');
 include('../app/controllers/usuarios/listado_usuarios.php');
 
-if (isset($_SESSION['mensaje'])) {
-  $respuesta = $_SESSION['mensaje'];
 
 ?>
-  <script>
-    Swal.fire({
-      icon: "success",
-      title: '<?php echo $respuesta; ?>',
-      showConfirmButton: false,
-      timer: 2500
-    });
-  </script>
-<?php
-  unset($_SESSION['mensaje']);
-}
-
-?>
+ 
 <!-- Content Header (Page header) -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -56,16 +42,27 @@ if (isset($_SESSION['mensaje'])) {
                       <th>Nro</th>
                       <th>Nombres</th>
                       <th>Email</th>
+                      <th>Acciones</th>
                   </tr>
                   </thead>
                   <tbody>
                       <?php
                       $contador = 0;
-                      foreach ($data_user as $userdata) { ?>
+                      foreach ($data_user as $userdata) {
+                        $id_usuario = $userdata['id_usuario']; ?>
                         <tr>
                           <td><?php echo $contador = $contador + 1; ?></td>
                           <td><?php echo $userdata['nombres'] ?></td>
                           <td><?php echo $userdata['email'] ?></td>
+                          <td>
+                            <center>
+                              <div class="btn-group">
+                                <a href="show.php?id=<?php echo $id_usuario; ?>" class="btn btn-info"><i class="fa fa-eye"></i>Ver</a>
+                                <a href="update.php?id=<?php echo $id_usuario; ?>" class="btn btn-success"><i class="fa fapencil-alt"></i>Editar</a>
+                                <a href="delete.php?id=<?php echo $id_usuario; ?>" class="btn btn-danger"><i class="fa fa-trash"></i>Borrar</a>
+                              </div>
+                            </center>
+                          </td>
                         </tr>
                       <?php } ?>
                     </tbody>
@@ -86,6 +83,7 @@ if (isset($_SESSION['mensaje'])) {
   </div>
 </div>
 
+<?php include('../layout/mensajes.php');?>
 <?php include('../layout/parte2.php'); ?>
 
 <script>
@@ -114,7 +112,32 @@ if (isset($_SESSION['mensaje'])) {
       "responsive": true,
       "lengthChange": true,
       "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      /* Ajuste de botones */
+      buttons: [{
+                        extend: 'collection',
+                        text: 'Reportes',
+                        orientation: 'landscape',
+                        buttons: [{
+                            text: 'Copiar',
+                            extend: 'copy'
+                        }, {
+                            extend: 'pdf',
+                        }, {
+                            extend: 'csv',
+                        }, {
+                            extend: 'excel',
+                        }, {
+                            text: 'Imprimir',
+                            extend: 'print'
+                        }
+                        ]
+                    },
+                        {
+                            extend: 'colvis',
+                            text: 'Visol de columnas'
+                        }
+                    ],
+                    /*Fin de ajuste de botones*/
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
 
   });
