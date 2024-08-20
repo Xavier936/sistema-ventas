@@ -67,7 +67,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo $URL;?>public/templates/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?php echo $URL;?>public/images/user.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo $nombres_sesion; ?></a>
@@ -102,6 +102,32 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-address-card"></i>
+              <p>
+                Roles
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/roles" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listado de Roles</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo $URL;?>/roles/create.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Creacion de rol</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+
+
           <li class="nav-item">
             <a href="<?php echo $URL;?>/app/controllers/login/salir.php" class="nav-link" style=" background-color: #ca0a0b;">
               <i class="nav-icon fas fa-door-closed"></i>
