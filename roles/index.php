@@ -40,7 +40,8 @@ include('../app/controllers/roles/listado_roles.php');
                   <thead>
                   <tr>
                       <th>Nro</th>
-                      <th>Nombres del rol</th>
+                      <th>Nombres</th>
+                      <th>Acciones</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -49,15 +50,14 @@ include('../app/controllers/roles/listado_roles.php');
                       foreach ($data_rol as $roldata) {
                         $id_rol = $roldata['id_rol']; ?>
                         <tr>
+                          
                           <td><?php echo $contador = $contador + 1; ?></td>
-                          <!-- <td><?php echo $roldata['id_rol'] ?></td> -->
                           <td><?php echo $roldata['rol'] ?></td>
+                          
                           <td>
                             <center>
                               <div class="btn-group">
-                                
-                                <a href="update.php?id=<?php echo $id_rol; ?>" class="btn btn-success"><i class="fa fapencil-alt"></i>Editar</a>
-                                
+                                <a href="update.php?id=<?php echo $id_rol; ?>" class="btn btn-success"><i class="fa fa-pencil-alt"></i> Editar</a>
                               </div>
                             </center>
                           </td>
@@ -90,12 +90,12 @@ include('../app/controllers/roles/listado_roles.php');
       "pageLength": 5,
       "language":{
         "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Usuarios",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Usuarios",
-        "infoFiltered": "(Filtrado de _MAX_ total Usuarios)",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Roles",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Roles",
+        "infoFiltered": "(Filtrado de _MAX_ total Roles)",
         "infoPostFix": "",
         "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Usuarios",
+        "lengthMenu": "Mostrar _MENU_ Roles",
         "loadingRecords": "Cargando...",
         "processing": "Procesando...",
         "search": "Buscador:",

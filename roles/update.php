@@ -2,7 +2,7 @@
 include_once('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
-include('../app/controllers/usuarios/show-user.php');
+include('../app/controllers/roles/show_rol.php');
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -34,25 +34,12 @@ include('../app/controllers/usuarios/show-user.php');
             <div class="card-body" style="display: block;">
               <div class="row">
                 <div class="col-md-12">
-                  <form action="../app/controllers/roles/update-rol.php" method="post">  
-                    <input  name="txt_id_user" type="text" class="form-control" value="<?php echo $id_usuario_get;?>" hidden >
+                  <form action="../app/controllers/roles/update_rol.php" method="post">  
+                    <input  name="txt_id_rol" type="text" class="form-control" value="<?php echo $id_rol;?>" hidden >
                     <div class="form-group">
-                      <label for="">Nombres</label>
-                      <input  name="txt_nombre" type="text" class="form-control" value="<?php echo $nombres;?>" required>
+                      <label for="">Rol </label>
+                      <input  name="txt_rol" type="text" class="form-control" value="<?php echo $rol;?>" required>
                     </div>
-                    <div class="form-group">
-                      <label for="">Email</label>
-                      <input name="txt_email"type="email" class="form-control"  value="<?php  echo $email;?>"  required>
-                    </div>
-                    <div class="form-group">
-                      <label for="">Contaseña</label>
-                      <input name="txt_pwd" type="text" class="form-control" placeholder="Al menos 8 caracteres">
-                    </div>
-                    <div class="form-group">
-                      <label for="">Repita la contraseña</label>
-                      <input name="txt_pass" type="text" class="form-control" >
-                    </div>
-
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary"> Guardar</button>
                       <a href="index.php" class="btn btn-danger">Cancelar</a>
