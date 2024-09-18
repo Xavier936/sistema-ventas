@@ -42,6 +42,7 @@ include('../app/controllers/usuarios/listado_usuarios.php');
                       <th>Nro</th>
                       <th>Nombres</th>
                       <th>Email</th>
+                      <th>Rol de usuario</th>
                       <th>Acciones</th>
                   </tr>
                   </thead>
@@ -54,6 +55,7 @@ include('../app/controllers/usuarios/listado_usuarios.php');
                           <td><?php echo $contador = $contador + 1; ?></td>
                           <td><?php echo $userdata['nombres'] ?></td>
                           <td><?php echo $userdata['email'] ?></td>
+                          <td><?php echo $userdata['rol'] ?></td>
                           <td>
                             <center>
                               <div class="btn-group">

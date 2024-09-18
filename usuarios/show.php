@@ -46,6 +46,10 @@ include('../app/controllers/usuarios/show-user.php');
                       <input name="txt_email"type="email" class="form-control"  value="<?php  echo $email;?>"  disabled>
                     </div>
                     <div class="form-group">
+                      <label for="">Rol Usuario</label>
+                      <input name="txt_rol" type="text" class="form-control"  value="<?php echo $rol;  ?>"  disabled>
+                    </div>
+                    <div class="form-group">
                       <a href="index.php" class="btn btn-danger">Volver Atras</a>
                     </div>
                   </form>

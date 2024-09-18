@@ -3,6 +3,7 @@ include_once('../app/config.php');
 include('../layout/sesion.php');
 include('../layout/parte1.php');
 include('../app/controllers/usuarios/show-user.php');
+include('../app/controllers/roles/listado_roles.php');
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -43,6 +44,28 @@ include('../app/controllers/usuarios/show-user.php');
                     <div class="form-group">
                       <label for="">Email</label>
                       <input name="txt_email"type="email" class="form-control"  value="<?php  echo $email;?>"  required>
+                      
+                    </div>
+                    <div class="form-group">
+                      <label for="">Rol de Usuario</label>
+                      <select name="txt_rol" id="" class='form-control'>
+                      <?php
+                      foreach($data_rol as $datoRol){
+                        $rol_tabla = $datoRol['rol'];
+                        $id_rol = $datoRol['id_rol']?>
+                        <option value = "<?php echo $id_rol;?>"
+                        <?php
+                        if($rol_tabla == $rol){?>
+                          selected="selected"
+                        <?php
+                        } ?> ><?php echo $rol_tabla; ?></option>
+                      <?php
+                      } 
+                      ?>
+                          
+                      </select>
+                      
+                      
                     </div>
                     <div class="form-group">
                       <label for="">Contaseña</label>

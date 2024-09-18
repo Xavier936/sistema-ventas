@@ -6,6 +6,7 @@ $email = $_POST['txt_email'];
 $password_user = $_POST['txt_pwd'];
 $pass_repeat = $_POST['txt_pass'];
 $id_usuario = $_POST['txt_id_user'];
+$id_rol = $_POST['txt_rol'];
 
 
 /* echo $nombres;
@@ -20,6 +21,7 @@ if($password_user==""){
         $update_usuarios = "UPDATE tb_usuarios SET 
                             nombres= :nombres,
                             email= :email,
+                            id_rol= :id_rol,
                             fyh_actualizacion= :fyh_actualizacion
                             WHERE id_usuario=:id_usuario";
     
@@ -27,6 +29,7 @@ if($password_user==""){
     
         $sql_create->bindParam(':nombres', $nombres);
         $sql_create->bindParam(':email', $email);
+        $sql_create->bindParam(':id_rol', $id_rol);
         $sql_create->bindParam(':fyh_actualizacion', $fechaHora);
         $sql_create->bindParam(':id_usuario', $id_usuario);
         $sql_create->execute();
@@ -48,6 +51,7 @@ if($password_user==""){
                             nombres= :nombres,
                             email= :email,
                             password_user= :password_user,
+                            id_rol= :id_rol,
                             fyh_actualizacion= :fyh_actualizacion
                             WHERE id_usuario=:id_usuario";
     
@@ -56,6 +60,7 @@ if($password_user==""){
         $sql_create->bindParam(':nombres', $nombres);
         $sql_create->bindParam(':email', $email);
         $sql_create->bindParam(':password_user', $password_user);
+        $sql_create->bindParam(':id_rol', $id_rol);
         $sql_create->bindParam(':fyh_actualizacion', $fechaHora);
         $sql_create->bindParam(':id_usuario', $id_usuario);
         $sql_create->execute();
